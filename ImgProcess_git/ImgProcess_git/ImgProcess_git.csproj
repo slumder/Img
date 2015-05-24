@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,16 +45,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="parameter\Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parameter\Chart.Designer.cs">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSpace\CIELab.cs" />
+    <Compile Include="ColorSpace\CIEXYZ.cs" />
+    <Compile Include="ColorSpace\CMYK.cs" />
+    <Compile Include="ColorSpace\ColorSpaceHelper.cs" />
+    <Compile Include="ColorSpace\HSB.cs" />
+    <Compile Include="ColorSpace\HSL.cs" />
+    <Compile Include="ColorSpace\RGB.cs" />
+    <Compile Include="ColorSpace\YUV.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="parameter\Brightness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parameter\Brightness.Designer.cs">
+      <DependentUpon>Brightness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parameter\Sharpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parameter\Sharpen.Designer.cs">
+      <DependentUpon>Sharpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parameter\Twist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parameter\Twist.Designer.cs">
+      <DependentUpon>Twist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="parameter\Radius.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parameter\Radius.Designer.cs">
+      <DependentUpon>Radius.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="parameter\Chart.resx">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parameter\Brightness.resx">
+      <DependentUpon>Brightness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parameter\Sharpen.resx">
+      <DependentUpon>Sharpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parameter\Twist.resx">
+      <DependentUpon>Twist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -64,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="parameter\Radius.resx">
+      <DependentUpon>Radius.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

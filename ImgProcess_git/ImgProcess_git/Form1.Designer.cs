@@ -30,21 +30,23 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.binaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imgProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageSubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.binaryToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.originToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sharpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.smoothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageSubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.morphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +54,13 @@
             this.wTHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bTHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contrastEnhancementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageTransToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flipHorizontallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flipVerticallyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.twistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -68,7 +72,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filesToolStripMenuItem,
-            this.filterToolStripMenuItem,
+            this.imgProcessToolStripMenuItem,
             this.imageTransToolStripMenuItem,
             this.showChartToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -81,24 +85,128 @@
             // 
             this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.saveToolStripMenuItem});
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
             this.filesToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.filesToolStripMenuItem.Text = "Files";
             // 
-            // filterToolStripMenuItem
+            // loadToolStripMenuItem
             // 
-            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.grayToolStripMenuItem,
-            this.binaryToolStripMenuItem,
-            this.sharpenToolStripMenuItem,
-            this.smoothToolStripMenuItem,
-            this.medianToolStripMenuItem,
-            this.sobelToolStripMenuItem,
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // imgProcessToolStripMenuItem
+            // 
+            this.imgProcessToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hEToolStripMenuItem,
             this.labelingToolStripMenuItem,
             this.imageSubToolStripMenuItem,
+            this.colorTransToolStripMenuItem,
+            this.filterToolStripMenuItem,
+            this.morphologyToolStripMenuItem});
+            this.imgProcessToolStripMenuItem.Name = "imgProcessToolStripMenuItem";
+            this.imgProcessToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.imgProcessToolStripMenuItem.Text = "影像處理";
+            // 
+            // hEToolStripMenuItem
+            // 
+            this.hEToolStripMenuItem.Name = "hEToolStripMenuItem";
+            this.hEToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hEToolStripMenuItem.Text = "HE";
+            // 
+            // labelingToolStripMenuItem
+            // 
+            this.labelingToolStripMenuItem.Name = "labelingToolStripMenuItem";
+            this.labelingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.labelingToolStripMenuItem.Text = "Labeling";
+            // 
+            // imageSubToolStripMenuItem
+            // 
+            this.imageSubToolStripMenuItem.Name = "imageSubToolStripMenuItem";
+            this.imageSubToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imageSubToolStripMenuItem.Text = "ImageSub";
+            // 
+            // colorTransToolStripMenuItem
+            // 
+            this.colorTransToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.grayToolStripMenuItem1,
+            this.binaryToolStripMenuItem1,
+            this.originToolStripMenuItem});
+            this.colorTransToolStripMenuItem.Name = "colorTransToolStripMenuItem";
+            this.colorTransToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.colorTransToolStripMenuItem.Text = "色彩轉換";
+            // 
+            // grayToolStripMenuItem1
+            // 
+            this.grayToolStripMenuItem1.Name = "grayToolStripMenuItem1";
+            this.grayToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.grayToolStripMenuItem1.Text = "Gray";
+            // 
+            // binaryToolStripMenuItem1
+            // 
+            this.binaryToolStripMenuItem1.Name = "binaryToolStripMenuItem1";
+            this.binaryToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.binaryToolStripMenuItem1.Text = "Binary";
+            // 
+            // originToolStripMenuItem
+            // 
+            this.originToolStripMenuItem.Name = "originToolStripMenuItem";
+            this.originToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.originToolStripMenuItem.Text = "Origin";
+            // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brightnessToolStripMenuItem,
+            this.sharpenToolStripMenuItem,
+            this.smoothToolStripMenuItem,
+            this.medianToolStripMenuItem,
+            this.sobelToolStripMenuItem});
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterToolStripMenuItem.Text = "Filter";
+            // 
+            // brightnessToolStripMenuItem
+            // 
+            this.brightnessToolStripMenuItem.Name = "brightnessToolStripMenuItem";
+            this.brightnessToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.brightnessToolStripMenuItem.Text = "Brightness";
+            // 
+            // sharpenToolStripMenuItem
+            // 
+            this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
+            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sharpenToolStripMenuItem.Text = "Sharpen";
+            // 
+            // smoothToolStripMenuItem
+            // 
+            this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
+            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.smoothToolStripMenuItem.Text = "Smooth";
+            // 
+            // medianToolStripMenuItem
+            // 
+            this.medianToolStripMenuItem.Name = "medianToolStripMenuItem";
+            this.medianToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.medianToolStripMenuItem.Text = "Median";
+            // 
+            // sobelToolStripMenuItem
+            // 
+            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sobelToolStripMenuItem.Text = "Sobel";
+            // 
+            // morphologyToolStripMenuItem
+            // 
+            this.morphologyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.erosionToolStripMenuItem,
             this.dilationToolStripMenuItem,
             this.openingToolStripMenuItem,
@@ -106,99 +214,9 @@
             this.wTHToolStripMenuItem,
             this.bTHToolStripMenuItem,
             this.contrastEnhancementToolStripMenuItem});
-            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.filterToolStripMenuItem.Text = "Filter";
-            // 
-            // showChartToolStripMenuItem
-            // 
-            this.showChartToolStripMenuItem.Name = "showChartToolStripMenuItem";
-            this.showChartToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.showChartToolStripMenuItem.Text = "ShowChart";
-            // 
-            // imageTransToolStripMenuItem
-            // 
-            this.imageTransToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zoomInToolStripMenuItem,
-            this.zoomOutToolStripMenuItem,
-            this.flipHorizontallyToolStripMenuItem,
-            this.flipVerticallyToolStripMenuItem,
-            this.twistToolStripMenuItem});
-            this.imageTransToolStripMenuItem.Name = "imageTransToolStripMenuItem";
-            this.imageTransToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.imageTransToolStripMenuItem.Text = "ImageTrans";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadToolStripMenuItem.Text = "Load";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // grayToolStripMenuItem
-            // 
-            this.grayToolStripMenuItem.Name = "grayToolStripMenuItem";
-            this.grayToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.grayToolStripMenuItem.Text = "Gray";
-            // 
-            // binaryToolStripMenuItem
-            // 
-            this.binaryToolStripMenuItem.Name = "binaryToolStripMenuItem";
-            this.binaryToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.binaryToolStripMenuItem.Text = "Binary";
-            // 
-            // sharpenToolStripMenuItem
-            // 
-            this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
-            this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.sharpenToolStripMenuItem.Text = "Sharpen";
-            // 
-            // smoothToolStripMenuItem
-            // 
-            this.smoothToolStripMenuItem.Name = "smoothToolStripMenuItem";
-            this.smoothToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.smoothToolStripMenuItem.Text = "Smooth";
-            // 
-            // medianToolStripMenuItem
-            // 
-            this.medianToolStripMenuItem.Name = "medianToolStripMenuItem";
-            this.medianToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.medianToolStripMenuItem.Text = "Median";
-            // 
-            // sobelToolStripMenuItem
-            // 
-            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
-            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.sobelToolStripMenuItem.Text = "Sobel";
-            // 
-            // hEToolStripMenuItem
-            // 
-            this.hEToolStripMenuItem.Name = "hEToolStripMenuItem";
-            this.hEToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.hEToolStripMenuItem.Text = "HE";
-            // 
-            // labelingToolStripMenuItem
-            // 
-            this.labelingToolStripMenuItem.Name = "labelingToolStripMenuItem";
-            this.labelingToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.labelingToolStripMenuItem.Text = "Labeling";
-            // 
-            // imageSubToolStripMenuItem
-            // 
-            this.imageSubToolStripMenuItem.Name = "imageSubToolStripMenuItem";
-            this.imageSubToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.imageSubToolStripMenuItem.Text = "ImageSub";
+            this.morphologyToolStripMenuItem.Name = "morphologyToolStripMenuItem";
+            this.morphologyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.morphologyToolStripMenuItem.Text = "Morphology";
             // 
             // erosionToolStripMenuItem
             // 
@@ -242,6 +260,18 @@
             this.contrastEnhancementToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.contrastEnhancementToolStripMenuItem.Text = "Contrast Enhancement";
             // 
+            // imageTransToolStripMenuItem
+            // 
+            this.imageTransToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zoomInToolStripMenuItem,
+            this.zoomOutToolStripMenuItem,
+            this.flipHorizontallyToolStripMenuItem,
+            this.flipVerticallyToolStripMenuItem,
+            this.twistToolStripMenuItem});
+            this.imageTransToolStripMenuItem.Name = "imageTransToolStripMenuItem";
+            this.imageTransToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.imageTransToolStripMenuItem.Text = "ImageTrans";
+            // 
             // zoomInToolStripMenuItem
             // 
             this.zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
@@ -271,6 +301,12 @@
             this.twistToolStripMenuItem.Name = "twistToolStripMenuItem";
             this.twistToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.twistToolStripMenuItem.Text = "Twist";
+            // 
+            // showChartToolStripMenuItem
+            // 
+            this.showChartToolStripMenuItem.Name = "showChartToolStripMenuItem";
+            this.showChartToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.showChartToolStripMenuItem.Text = "ShowChart";
             // 
             // pictureBox1
             // 
@@ -316,24 +352,10 @@
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem grayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem binaryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sharpenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem smoothToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imgProcessToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem labelingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageSubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wTHToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bTHToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contrastEnhancementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageTransToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zoomInToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zoomOutToolStripMenuItem;
@@ -343,6 +365,24 @@
         private System.Windows.Forms.ToolStripMenuItem showChartToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem colorTransToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem grayToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem binaryToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem originToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem brightnessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sharpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem smoothToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem morphologyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wTHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bTHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contrastEnhancementToolStripMenuItem;
     }
 }
 
