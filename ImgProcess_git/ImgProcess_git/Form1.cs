@@ -48,6 +48,8 @@ namespace ImgProcess_git
             bitmap_binary = new Bitmap(bitmap.Width, bitmap.Height);
             pictureBox1.Image = bitmap;
             pictureBox2.Image = bitmap2;
+
+            Histogram(); //use at first show chart
         }
 
         private void toGray() //灰階
@@ -100,7 +102,14 @@ namespace ImgProcess_git
         }
 
         private void BinaryOrNot()
-        { }
+        {
+            if (Isbinary)
+            { 
+            }
+            else
+            { 
+            }
+        } //////////
 
         private void PowerLaw()
         {
@@ -116,7 +125,7 @@ namespace ImgProcess_git
                     bitmap2.SetPixel(i, j, color);
                 }
             }
-        } //
+        } //////////
 
         private void PowerLaw_Gray()
         {
@@ -135,7 +144,7 @@ namespace ImgProcess_git
                     bitmap2.SetPixel(i, j, color);
                 }
             }
-        } //
+        } //////////
 
         private void Sharpen()
         {
@@ -291,10 +300,12 @@ namespace ImgProcess_git
             }
         }
 
-        //private void ZoomIn()
-        //{ 
-            
-        //}
+        private void ZoomIn()
+        {
+            parameter.ZoomIn zoomin = new parameter.ZoomIn();
+            zoomin.pictureBox1.Image = bitmap;
+            zoomin.ShowDialog();
+        } //////////
 
         private void Histogram()
         {
@@ -408,12 +419,9 @@ namespace ImgProcess_git
             int[,] table = new int[bitmap.Width, bitmap.Height];
             int labelnum = 1;
             int threshold = 50;
-            //int count = 0;
-            //int sort = 0;
-            //bool equivalentState = false;
+
             int[,] labeling = new int[bitmap.Width, bitmap.Height];
             List<Point> equivalents = new List<Point>();
-            //List<int> e;
 
             for (int i = 0; i < bitmap.Width; i++)
             {
@@ -722,8 +730,204 @@ namespace ImgProcess_git
 
         #region button
 
+        private void grayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            toGray();
+            pictureBox2.Image = bitmap_gray;
+        }
+
+        private void binaryToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            toBinary();
+            pictureBox2.Image = bitmap_binary;
+        }
+
+        private void originToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = bitmap;
+        } //////////
+
+        private void hEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cdfCount();
+            HistogramEqualization();
+            HistogramClear();
+            Histogram();
+            DrawChart();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void labelingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Labeling();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void imageSubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageSub();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void brightnessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parameter.Bright bright = new parameter.Bright(this);
+            pow = bright.trackBar1.Value / 100;
+            GrayOrNot();
+            pictureBox2.Image = bitmap2;
+        } //////////
+
+        private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sharpen();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void smoothToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Smooth();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void medianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Median();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sobel();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parameter.Radius R = new parameter.Radius(this);
+            R.ShowDialog();
+            toBinary();
+            Bitmap erosionBitmap = erosion(bitmap_binary, (int)radius);
+            pictureBox2.Image = erosionBitmap;
+        }
+
+        private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parameter.Radius R = new parameter.Radius(this);
+            R.ShowDialog();
+            toBinary();
+            Bitmap dilationBitmap = dilation(bitmap_binary, (int)radius);
+            pictureBox2.Image = dilationBitmap;
+        }
+
+        private void openingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parameter.Radius R = new parameter.Radius(this);
+            R.ShowDialog();
+            toBinary();
+            Bitmap openingBitmap = dilation(erosion(bitmap_binary, (int)radius), (int)radius);
+            pictureBox2.Image = openingBitmap;
+        }
+
+        private void closingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parameter.Radius R = new parameter.Radius(this);
+            R.ShowDialog();
+            toBinary();
+            Bitmap closingBitmap = erosion(dilation(bitmap_binary, (int)radius), (int)radius);
+            pictureBox2.Image = closingBitmap;
+        }
+
+        private void wTHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //opening - binary
+            toBinary();
+            Bitmap wthBitmap = wth();
+
+            pictureBox2.Image = wthBitmap;
+        }
+
+        private void bTHToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //closing - binary
+            toBinary();
+            Bitmap bthBitmap = bth();
+
+            pictureBox2.Image = bthBitmap;
+        }
+
+        private void contrastEnhancementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //binary + WTH - BTH
+            toBinary();
+            Bitmap wthBitmap = wth();
+            Bitmap bthBitmap = bth();
+            Bitmap ceBitmap = new Bitmap(bitmap.Width, bitmap.Height);
+
+            for (int i = 0; i < bitmap.Width; i++)
+            {
+                for (int j = 0; j < bitmap.Height; j++)
+                {
+                    Color color1 = bitmap_binary.GetPixel(i, j);
+                    int gray1 = (color1.R + color1.G + color1.B) / 3;
+                    Color color2 = wthBitmap.GetPixel(i, j);
+                    int gray2 = (color2.R + color2.G + color2.B) / 3;
+                    Color color3 = bthBitmap.GetPixel(i, j);
+                    int gray3 = (color3.R + color3.G + color3.B) / 3;
+
+                    Color color;
+                    int gray = Math.Abs(gray1 + gray2 - gray3);
+
+                    if (gray > 40)
+                    {
+                        gray = 0;
+                        color = Color.FromArgb(gray, gray, gray);
+                    }
+                    else
+                    {
+                        color = Color.FromArgb(255, 255, 255);
+                    }
+
+                    ceBitmap.SetPixel(i, j, color);
+                }
+            }
+
+            pictureBox2.Image = ceBitmap;
+        }
+
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomIn();
+        } 
+
         #endregion
 
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomOut();
+            pictureBox2.Image = bitmap2;
+        }
 
+        private void flipHorizontallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mirror_Horizontal();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void flipVerticallyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mirror_Vertical();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void twistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            twistTransform();
+            pictureBox2.Image = bitmap2;
+        }
+
+        private void showChartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DrawChart();
+        }
     }
 }

@@ -45,10 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="parameter\Chart.cs">
+    <Compile Include="parameter\Bright.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="parameter\Chart.Designer.cs">
+    <Compile Include="parameter\Bright.Designer.cs">
+      <DependentUpon>Bright.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart.Designer.cs">
       <DependentUpon>Chart.cs</DependentUpon>
     </Compile>
     <Compile Include="ColorSpace\CIELab.cs" />
@@ -65,11 +71,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="parameter\Brightness.cs">
+    <Compile Include="parameter\Radius.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="parameter\Brightness.Designer.cs">
-      <DependentUpon>Brightness.cs</DependentUpon>
+    <Compile Include="parameter\Radius.Designer.cs">
+      <DependentUpon>Radius.cs</DependentUpon>
     </Compile>
     <Compile Include="parameter\Sharpen.cs">
       <SubType>Form</SubType>
@@ -83,28 +89,34 @@
     <Compile Include="parameter\Twist.Designer.cs">
       <DependentUpon>Twist.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="parameter\Radius.cs">
+    <Compile Include="parameter\ZoomIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="parameter\Radius.Designer.cs">
-      <DependentUpon>Radius.cs</DependentUpon>
+    <Compile Include="parameter\ZoomIn.Designer.cs">
+      <DependentUpon>ZoomIn.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="parameter\Chart.resx">
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="parameter\Bright.resx">
+      <DependentUpon>Bright.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart.resx">
       <DependentUpon>Chart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="parameter\Brightness.resx">
-      <DependentUpon>Brightness.cs</DependentUpon>
+    <EmbeddedResource Include="parameter\Radius.resx">
+      <DependentUpon>Radius.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="parameter\Sharpen.resx">
       <DependentUpon>Sharpen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="parameter\Twist.resx">
       <DependentUpon>Twist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parameter\ZoomIn.resx">
+      <DependentUpon>ZoomIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,9 +127,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="parameter\Radius.resx">
-      <DependentUpon>Radius.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

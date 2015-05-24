@@ -1,1 +1,15 @@
 C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\bin\Debug\ImgProcess_git.exe.config
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\bin\Debug\ImgProcess_git.exe
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\bin\Debug\ImgProcess_git.pdb
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.csprojResolveAssemblyReference.cache
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.Chart.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.Form1.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.Brightness.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.parameter.Sharpen.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.parameter.Twist.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.parameter.ZoomIn.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.Properties.Resources.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.Radius.resources
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.csproj.GenerateResource.Cache
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.exe
+C:\Users\Slumder\Img\ImgProcess_git\ImgProcess_git\obj\Debug\ImgProcess_git.pdb

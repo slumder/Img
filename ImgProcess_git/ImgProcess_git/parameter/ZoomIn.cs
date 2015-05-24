@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ImgProcess_git.parameter
 {
-    public partial class Radius : Form
+    public partial class ZoomIn : Form
     {
-        Form1 f1;
-        public Radius(Form1 parentf)
+        public ZoomIn()
         {
             InitializeComponent();
-
-            f1 = parentf;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string text = textBox1.Text;
-            f1.radius = Convert.ToDouble(text);
-            Close();
         }
     }
 }
